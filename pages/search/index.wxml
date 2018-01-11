@@ -1,0 +1,23 @@
+<view class="body">
+  <view class="search-wrap">
+      <icon class="search-icon" type="search" size="20"></icon>
+      <input class="search-input" type="text" value="{{searchValue}}" bindconfirm="searchInput" placeholder="图书搜索" placeholder-style="font-size: 28rpx;"/>
+      <text class="cancel" bindtap="backHome">取消</text>
+  </view>
+    
+  <view class="result-list">
+    <block wx:for="{{result.subjects}}" wx:key="unique" wx:for-item="item">
+      <view class="book-item-wrap"  data-id="{{item.id}}" bindtap="goToBookDetail">
+        <view class="book-photo-wrap">
+          <image class="book-photo" src="{{item.image}}" alt="" srcset=""></image>
+        </view>
+        <view class="book-info">
+          <view class="book-title">{{item.title}}</view>
+          <view class="publish-info">
+            {{item.rating}}/{{item.author}}/{{item.pubdate}}/{{item.publisher}}
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

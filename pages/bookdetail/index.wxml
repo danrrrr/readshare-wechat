@@ -1,0 +1,18 @@
+<view class="body">
+    <view class="book-banner">
+        this is book detail page
+    </view>
+    <view class="book-info">
+        <view class="book-title">
+            <view class="title">
+                {{title}}
+            </view>
+            <view class="book-pub-info">
+
+            </view>
+        </view>
+        <view class="book-rating">
+
+        </view>
+    </view>
+</view>

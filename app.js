@@ -34,6 +34,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    "doubanBase": "https://api.douban.com",
+    "search": "/v2/book/search?q=",
+    
   }
 })
