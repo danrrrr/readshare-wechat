@@ -9,7 +9,7 @@
     <block wx:for="{{result.subjects}}" wx:key="unique" wx:for-item="item">
       <view class="book-item-wrap"  data-id="{{item.id}}" bindtap="goToBookDetail">
         <view class="book-photo-wrap">
-          <image class="book-photo" src="{{item.image}}" alt="" srcset=""></image>
+          <image class="book-photo" src="{{item.image}}" alt="" srcset="" />
         </view>
         <view class="book-info">
           <view class="book-title">{{item.title}}</view>

@@ -37,6 +37,7 @@ App({
     userInfo: null,
     "doubanBase": "https://api.douban.com",
     "search": "/v2/book/search?q=",
+    "book": "/v2/book/",
     
   }
 })

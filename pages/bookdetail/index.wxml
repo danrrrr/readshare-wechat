@@ -1,11 +1,13 @@
 <view class="body">
     <view class="book-banner">
-        this is book detail page
+        <view class="book-photo-wrap">
+            <image class="book-photo" src="{{}}"></image>
+        </view>
     </view>
     <view class="book-info">
         <view class="book-title">
-            <view class="title">
-                {{title}}
+            <view class="title" bindtap="test">
+                {{result.title}}
             </view>
             <view class="book-pub-info">
 
@@ -14,5 +16,12 @@
         <view class="book-rating">
 
         </view>
+    </view>
+    <view class="notes-list">
+        <block wx:for="{{notes.subjects}}" wx:for-item="item">
+            <view class="note-item">
+                {{item.abstract}}
+            </view>
+        </block>
     </view>
 </view>

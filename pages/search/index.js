@@ -44,13 +44,11 @@ Page({
     this.setData({
       result: {subjects: results}
     });
-    console.log(this.data.result);
   },
   backHome: function() {
     wx.navigateTo({
       url: '../home/index'
     })
-    console.log('xxx');
   },
   goToBookDetail: function(e) {
     const id = e.currentTarget.dataset.id
