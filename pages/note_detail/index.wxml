@@ -1,0 +1,25 @@
+<view class="body">
+    <view class="header">
+        <view class="title">第{{note.page_no}}页</view>
+        <view class="user-info">
+            <view class="user-avatar-wrap">
+                <image class="user-avatar" src="{{note.author_user.avatar}}"></image>
+            </view>
+            <view class="note-info">
+                <view class="author-user"><text class="username">{{note.author_user.name}}</text>的读书笔记</view>
+                
+                <view class="time">
+                    {{note.time}}
+                </view>
+            </view>
+            
+        </view>
+        <view class="note-content">
+            {{note.content.blocks}}
+            <view class="the-end">
+                THE END
+            </view>
+        </view>
+        
+    </view>
+</view>
