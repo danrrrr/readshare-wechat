@@ -35,7 +35,7 @@
         </view>
         <scroll-view class="notes-list" scroll-x="true">
             <block wx:for="{{notes.subjects}}" wx:for-item="item">
-                <view class="note-item">
+                <view class="note-item" bindtap="gotToNoteDetail">
                     <view class="item-wrap">
                         <view class="page-no">
                             第{{item.page_no}}页

@@ -1,8 +1,8 @@
 {
   "pages":[
+    "pages/book_detail/index", 
     "pages/search/index",
-    "pages/bookdetail/index",
-    
+      
     "pages/home/index",
     "pages/focus/index",
     "pages/write/index",

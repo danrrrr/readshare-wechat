@@ -8,8 +8,8 @@ Page({
     },
     onLoad: function (options) {
         const _this = this;
-        const id = options.id;
-        // const id = 27010212;
+        // const id = options.id;
+        const id = 27010212;
         const bookUrl = app.globalData.doubanBase + app.globalData.book + id;
         const notesUrl = app.globalData.doubanBase + app.globalData.book + id + '/annotations';
         
@@ -62,5 +62,8 @@ Page({
         this.setData({
             showAll: !this.data.showAll
         })
+    },
+    goToNoteDetail: function() {
+        
     }
 })

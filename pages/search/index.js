@@ -1,15 +1,36 @@
 const app = getApp();
-
+let historyArr = [];
 Page({
   data: {
     result: {},
-    searchValue: ''
+    searchValue: '',
+    historyStorage: {},
+    showHistory: true,
+    showSearchResults: true,
+    searchFocus: true
+  },
+  onLoad: function(){
+    const storageHistory = wx.getStorageSync('historyStorage');
+    if(storageHistory) {
+      this.setData({
+        historyStorage: {items: storageHistory}
+      })
+    }
   },
   searchInput: function(e) {
     let value = e.detail.value;
+    if(historyArr.length >= 3) {
+      historyArr.pop();
+    }
+    if(value && historyArr.indexOf(value) === -1) {
+      historyArr.unshift(value);
+    }
+    wx.setStorageSync('historyStorage', historyArr);
     this.setData({
-      searchValue: value
+      searchValue: value,
+      historyStorage: {items: historyArr}
     })
+    console.log(this.data.historyStorage);
     this.handleSearchData(value);
   },
   handleSearchData: function(value) {
@@ -45,7 +66,10 @@ Page({
       results.push(temp);
     }
     this.setData({
-      result: {subjects: results}
+      result: {subjects: results},
+      showHistory: false,
+      showSearchResults: true
+
     });
   },
   backHome: function() {
@@ -56,12 +80,33 @@ Page({
   goToBookDetail: function(e) {
     const id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../bookdetail/index?id=' + id
+      url: '../book_detail/index?id=' + id
     });
   },
   clearSearch: function() {
     this.setData({
-      searchValue: ''
+      searchValue: '',
+      showHistory: true,
+      showSearchResults: false,
+      searchFocus: true
+    })
+  },
+  clearHistory: function() {
+    historyArr = [];
+    this.setData({
+      historyStorage: {items: historyArr}
+    });
+    wx.setStorageSync('historyStorage');
+  },
+  setSearchInputValue: function(e) {
+    this.setData({
+      searchValue: e.currentTarget.dataset.value,
+      searchFocus: true
+    })
+  },
+  bindSearchInput: function() {
+    this.setData({
+      showHistory: false
     })
   }
 })

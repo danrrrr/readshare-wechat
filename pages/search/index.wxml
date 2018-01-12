@@ -1,12 +1,24 @@
 <view class="body">
   <view class="search-wrap">
       <icon class="search-icon" type="search" size="20"></icon>
-      <input class="search-input" type="text" value="{{searchValue}}" bindconfirm="searchInput" placeholder="图书搜索" placeholder-style="font-size: 28rpx;"/>
+      <input class="search-input" type="text" value="{{searchValue}}" bindconfirm="searchInput" bindinput="bindSearchInput" focus="{{searchFocus}}" placeholder="图书搜索" placeholder-style="font-size: 28rpx;"/>
       <text class="cancel" bindtap="clearSearch">{{searchValue ? 'X' : ''}} </text>
       <text class="cancel" bindtap="backHome">取消</text>
   </view>
-    
-  <view class="result-list">
+  <view class="search-history" wx:if="{{historyStorage.items.length && showHistory}}">
+    <view class="history-title">
+      <text>搜索历史</text>
+      <text bindtap="clearHistory">清除</text>
+    </view>
+    <view  class="history-content">
+      <block wx:for="{{historyStorage.items}}" wx:for-item="item">
+        <view class="history-item" data-value="{{item}}" bindtap="setSearchInputValue">
+          {{item}}
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="result-list" wx:if="{{showSearchResults}}">
     <block wx:for="{{result.subjects}}" wx:key="unique" wx:for-item="item">
       <view class="book-item-wrap"  data-id="{{item.id}}" bindtap="goToBookDetail">
         <view class="book-photo-wrap">

@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     background-color: rgb(247, 247, 244);
-
+    font-size: 24rpx;
 }
 .search-wrap {
     width: 100%;
@@ -57,6 +57,29 @@
 }
 .publish-info {
     margin-top: 20rpx;
-    font-size: 24rpx;
+    font-size: 28rpx;
     color: #aaa
+}
+.search-history {
+
+}
+.history-title {
+    height: 60rpx;
+    line-height: 60rpx;
+    margin: 20rpx 40rpx;
+    display: flex;
+    justify-content: space-between;
+    color: #888;
+}
+.history-title text {
+    display: block;
+}
+.history-content {
+
+}
+.history-item {
+    font-size: 28rpx;
+    padding: 20rpx;
+    background-color: #fff;
+    border-bottom: 1px solid rgb(238, 233, 233);
 }
