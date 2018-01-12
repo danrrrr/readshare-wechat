@@ -1,13 +1,15 @@
 {
   "pages":[
     "pages/search/index",
+    "pages/bookdetail/index",
+    
     "pages/home/index",
     "pages/focus/index",
     "pages/write/index",
     "pages/message/index",
     "pages/user/index",
     "pages/welcome/index",
-    "pages/bookdetail/index",
+    
     "pages/logs/logs"
   ],
   "window":{

@@ -3,13 +3,16 @@ const app = getApp();
 Page({
     data: {
         result: {},
-        notes: {}
+        notes: {},
+        showAll: false
     },
     onLoad: function (options) {
         const _this = this;
         const id = options.id;
+        // const id = 27010212;
         const bookUrl = app.globalData.doubanBase + app.globalData.book + id;
         const notesUrl = app.globalData.doubanBase + app.globalData.book + id + '/annotations';
+        
         const notesArr = [];
         wx.request({
             url: bookUrl,
@@ -24,6 +27,7 @@ Page({
                         author: data.author,
                         publisher: data.publisher,
                         pubdate: data.pubdate,
+                        rating: data.rating,
                         summary: data.summary,
                         images: data.images,
 
@@ -39,11 +43,12 @@ Page({
                 const notes = res.data;
                 for(let idx in notes.annotations) {
                     const note = notes.annotations[idx];
+                    const time = note.time.split(' ')[0];
                     const temp = {
                         abstract: note.abstract,
                         author_user: note.author_user,
                         page_no: note.page_no,
-                        time: note.time
+                        time: time
                     }
                     notesArr.push(temp);
                 }
@@ -51,6 +56,11 @@ Page({
                     notes: {subjects: notesArr}
                 })
             }
+        })
+    },
+    showAllSummary: function() {
+        this.setData({
+            showAll: !this.data.showAll
         })
     }
 })

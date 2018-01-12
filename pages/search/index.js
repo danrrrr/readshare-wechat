@@ -7,6 +7,9 @@ Page({
   },
   searchInput: function(e) {
     let value = e.detail.value;
+    this.setData({
+      searchValue: value
+    })
     this.handleSearchData(value);
   },
   handleSearchData: function(value) {
@@ -51,9 +54,14 @@ Page({
     })
   },
   goToBookDetail: function(e) {
-    const id = e.currentTarget.dataset.id
+    const id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../bookdetail/index?id=' + id
     });
+  },
+  clearSearch: function() {
+    this.setData({
+      searchValue: ''
+    })
   }
 })

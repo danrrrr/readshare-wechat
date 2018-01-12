@@ -1,27 +1,57 @@
 <view class="body">
     <view class="book-banner">
         <view class="book-photo-wrap">
-            <image class="book-photo" src="{{}}"></image>
+            <image class="book-photo" src="{{result.images.large}}"></image>
         </view>
     </view>
-    <view class="book-info">
-        <view class="book-title">
-            <view class="title" bindtap="test">
-                {{result.title}}
+    <view class="content">
+        <view class="book-info">
+            <view class="book-title">
+                <view class="title">
+                    {{result.title}}
+                </view>
+                <view class="book-pub-info">
+                    <text>作者： {{result.author}}</text>
+                    <text>出版社：{{result.publisher}}</text>
+                    <text>出版时间：{{result.pubdate}}</text>
+                </view>
             </view>
-            <view class="book-pub-info">
+            <view class="book-rating">
+                <text>豆瓣评分</text>
+                <text>{{result.rating.average}}</text>
+                <text>******</text>
+                <text>{{result.rating.numRaters}}人</text>
+            </view>
+        </view>
+        <view class="intro-wrap">
+            <view class="intro-title">
+                <text>简介</text>
+                <text class="show-all-btn" bindtap="showAllSummary">{{showAll ? '收起' : '展开'}}</text>
+            </view>
+            <view class="intro-text {{showAll ? '' : 'normal'}} ">
+                {{result.summary}}
+                
+            </view>
+        </view>
+        <scroll-view class="notes-list" scroll-x="true">
+            <block wx:for="{{notes.subjects}}" wx:for-item="item">
+                <view class="note-item">
+                    <view class="item-wrap">
+                        <view class="page-no">
+                            第{{item.page_no}}页
+                        </view>
+                        <view class="note-content">
+                            {{item.abstract}}
+                        </view>
+                        <view class="author-info">
+                            <text>{{item.author_user.name}}</text>
+                            <text>{{item.time}}</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
 
-            </view>
-        </view>
-        <view class="book-rating">
 
-        </view>
-    </view>
-    <view class="notes-list">
-        <block wx:for="{{notes.subjects}}" wx:for-item="item">
-            <view class="note-item">
-                {{item.abstract}}
-            </view>
-        </block>
-    </view>
 </view>
