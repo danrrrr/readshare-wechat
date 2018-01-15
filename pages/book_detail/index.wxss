@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background-color: rgb(197, 192, 175);
+    background-color: #2A9744;
 }
 .book-photo-wrap {
     width: 300rpx;
@@ -65,6 +65,10 @@
     font-size: 40rpx;
     font-weight: bold;
     color: #000;
+}
+.star {
+    width: 36rpx;
+    height: 36rpx;
 }
 .intro-wrap {
     margin-top: 30rpx;

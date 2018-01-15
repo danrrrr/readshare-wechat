@@ -29,8 +29,7 @@ Page({
     this.setData({
       searchValue: value,
       historyStorage: {items: historyArr}
-    })
-    console.log(this.data.historyStorage);
+    });
     this.handleSearchData(value);
   },
   handleSearchData: function(value) {

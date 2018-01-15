@@ -18,9 +18,13 @@
             </view>
             <view class="book-rating">
                 <text>豆瓣评分</text>
-                <text>{{result.rating.average}}</text>
-                <text>******</text>
-                <text>{{result.rating.numRaters}}人</text>
+                <text>{{result.rating}}</text>
+                <view class="stars">
+                    <block wx:for="{{stars}}">
+                        <image src="../../images/{{item}}-star.png" class="star"></image>
+                    </block>
+                </view>
+                <text>{{result.ratingPeople}}人</text>
             </view>
         </view>
         <view class="intro-wrap">

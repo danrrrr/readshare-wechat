@@ -1,3 +1,8 @@
 <view class="body">
-    这是写作页面
+    <view class="header">
+        <input type="text" placeholder="请输入标题" placeholder-class="input-placeholder"/>
+    </view>
+    <view class="content">
+        <textarea auto-height placeholder="请输入正文" placeholder-class="textarea-placeholder"></textarea>
+    </view>
 </view>

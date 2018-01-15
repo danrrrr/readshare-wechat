@@ -1,3 +1,25 @@
 <view class="body">
-    this is home page
+    <view class="search-wrap">
+        <icon class="search-icon" type="search" size="16"></icon>
+        <input class="search-input" type="text" bindfocus="goToSearch"
+            placeholder="图书搜索" placeholder-style="font-size: 28rpx;text-align: center;" />
+    </view>
+    <swiper autoplay="true" indicator-dots="true" circular="true">
+        <block wx:for="{{imgUrls}}" wx:for-item="item">
+            <swiper-item>
+                <image class="slide-image" src="{{item.url}}" data-id="{{item.id}}" alt="slider" bindtap="goToBookDetail"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    <scroll-view class="navigation" scroll-x="true">
+        <view class="nav-list">
+            <block wx:for="{{navBars}}">
+                <view class="nav-item" bindtap="toNavbarLink">
+                    <text class="iconfont icon-cainixihuan"></text>{{item.nav}}
+                </view>
+            </block>
+        </view>
+
+    </scroll-view>
+
 </view>

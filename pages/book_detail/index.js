@@ -4,7 +4,8 @@ Page({
     data: {
         result: {},
         notes: {},
-        showAll: false
+        showAll: false,
+        stars: []
     },
     onLoad: function (options) {
         const _this = this;
@@ -20,6 +21,10 @@ Page({
             header: { 'content-type': 'json' },
             success: function (res) {
                 const data = res.data;
+                const ratingAverage = data.rating.average;
+                _this.setData({
+                    stars: _this.starCount(ratingAverage)
+                })
                 _this.setData({
                     result: {
                         id: data.id,
@@ -27,7 +32,8 @@ Page({
                         author: data.author,
                         publisher: data.publisher,
                         pubdate: data.pubdate,
-                        rating: data.rating,
+                        rating: ratingAverage,
+                        ratingPeople: data.rating.numRaters,
                         summary: data.summary,
                         images: data.images,
 
@@ -57,7 +63,26 @@ Page({
                     notes: {subjects: notesArr}
                 })
             }
-        })
+        });
+
+    },
+    starCount: function(ratingStar) {
+        ratingStar = Number(ratingStar);
+        const stars = [];
+        let i = 0;
+
+        do{
+            if(ratingStar >= 2) {
+                stars[i] = 'full';
+            }else if(ratingStar >= 1) {
+                stars[i] = 'half';
+            }else {
+                stars[i] = 'no';
+            }
+            ratingStar -= 2;
+            i++;
+        }while(i < 5)
+        return stars;
     },
     showAllSummary: function() {
         this.setData({
@@ -66,8 +91,6 @@ Page({
     },
     gotToNoteDetail: function(e) {
         const id = e.currentTarget.dataset.id;
-        console.log(e.currentTarget);
-        console.log(id);
         wx.navigateTo({
             url: '../note_detail/index?id=' + id
         })

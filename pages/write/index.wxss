@@ -1,0 +1,29 @@
+.body {
+    width: 100%;
+    background-color: #fff;
+}
+.header {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-bottom: 1px dashed rgb(177, 177, 177);
+}
+.header input {
+    padding: 30rpx;
+    
+}
+.input-placeholder {
+    font-size: 40rpx;
+    font-weight: 400;
+    color: rgb(177, 177, 177);
+}
+.content {
+    margin-top: 20rpx;
+}
+.content textarea {
+    padding: 10rpx 30rpx;
+}
+.textarea-placeholder {
+    color: rgb(177, 177, 177);
+    font-size: 28rpx;
+}

@@ -1,11 +1,14 @@
 {
   "pages":[
-    "pages/search/index",
-    "pages/note_detail/index",
-    "pages/book_detail/index", 
     "pages/home/index",
-    "pages/focus/index",
+    "pages/book_detail/index",
     "pages/write/index",
+   
+    "pages/search/index",
+    
+    "pages/note_detail/index",
+    "pages/focus/index",
+   
     "pages/message/index",
     "pages/user/index",
     "pages/welcome/index",
@@ -21,19 +24,29 @@
   "tabBar": {
     "list": [{
       "pagePath": "pages/focus/index",
-      "text": "关注"
+      "text": "关注",
+      "iconPath": "images/like.png",
+      "selectedIconPath": "images/like.png"
     }, {
       "pagePath": "pages/home/index",
-      "text": "首页"
+      "text": "首页",
+      "iconPath": "images/home.png",
+      "selectedIconPath": "images/home.png"
     }, {
       "pagePath": "pages/write/index",
-      "text": "+"
+      "iconPath": "images/plus.png",
+      "selectedIconPath": "images/plus.png"
     }, {
       "pagePath": "pages/message/index",
-      "text": "消息"
+      "text": "消息",
+      "iconPath": "images/message.png",
+      "selectedIconPath": "images/message.png"
     }, {
       "pagePath": "pages/user/index",
-      "text": "我的"
-    }]
+      "text": "我的",
+      "iconPath": "images/user.png",
+      "selectedIconPath": "images/user.png"
+    }],
+      "selectedColor": " #2A9744"
   }
 }
